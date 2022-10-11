@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang=en>
+ <head>
+  <meta charset=utf-8>
+  <title>Decodificador</title>
+
+  <style type="text/css">
+   body
+   {
+    margin: 0px;
+    padding: 0px;
+    color: #2b2b2b;
+    background-color: #f2f2f2;
+    font-family: 'Calibri';
+    font-size: 10pt;
+   }
+
+   #header
+   {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 60px;
+    background-color: #2b2b2b;
+    color: #f2f2f2;
+   }
+
+   #header h1
+   {
+    margin: 0px;
+    font-family: 'Calibri';
+    font-size: 16pt;
+    padding: 20px 20px 20px 20px;
+   }
+
+   #content
+   {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    right: 0px;
+   }
+
+   #content .inner
+   {
+    padding: 20px 20px 20px 20px;
+   }
+
+   #content input[type="text"]
+   {
+    width: 200px;
+   }
+
+   #content button
+   {
+    font-size: 9pt;
+   }
+
+   #content h2
+   {
+    margin: 0px;
+    font-family: 'Calibri';
+    font-size: 12pt;
+    padding: 20px 0px 10px 0px;
+   }
+
+   #results a
+   {
+    display: block;
+   }
+  </style>
+
+  <script>
+   var string, result;
+
+   window.onload = function ()
+   {
+    string = document.getElementById('string');
+    result = document.getElementById('result');
+
+    string.value = "";
+    result.innerHTML = "";
+   };
+
+   function Encode ()
+   {
+    result.innerHTML += 'String: ' + string.value + '<br><br>' + 'Encoded: ' + window.btoa(string.value) + '<hr>';
+
+    string.value = "";
+    string.focus();
+   }
+
+   function Decode ()
+   {
+    result.innerHTML += 'Encoded: ' + string.value + '<br><br>' + 'String: ' + window.atob(string.value) + '<hr>';
+    string.value = "";
+    string.focus();
+   }
+  </script>
+ </head>
+ <body>
+  <div id="header">
+   <h1>Converter Base64 String Codificar/Decodificar</h1>
+  </div>
+  <div id="content">
+   <div class="inner">
+    String : <input type="text" name="string" id="string"> <button onclick="Encode();">Encode</button> <button onclick="Decode();">Decode</button><br>
+    <h2>Result:</h2>
+    <div id="result"></div>
+   </div>
+  </div>
+ </body>
+</html>
